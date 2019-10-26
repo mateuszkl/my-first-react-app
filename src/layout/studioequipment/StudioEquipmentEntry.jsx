@@ -10,7 +10,7 @@ export class StudioEquipmentEntry extends React.Component {
                 <td>
                     <div className="col-6">
                         <div className="card">
-                            <img src={imageUrl} className="card-img-top"/>
+                            <img src={imageUrl} className="card-img-top" alt=""/>
                         </div>
                     </div>
                 </td>
