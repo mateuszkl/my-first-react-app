@@ -16,9 +16,9 @@ export default class NavbarEntry extends React.Component {
         const {name, active} = this.props
         return (
             <div className="navlink">
-                <a className={active ? "active" : undefined}
+                <div className={active ? "active" : undefined}
                    onClick={this.handleOnTabClick}> {name}
-                </a>
+                </div>
             </div>
         )
     }

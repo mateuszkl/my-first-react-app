@@ -15,20 +15,24 @@ export default class Navbar extends React.Component {
     }
 
     render() {
-        const { activeTabId } = this.props
+        const {activeTabId} = this.props
 
         return (
             <nav className="navbar navbar-light bg-light">
-                <a className="navbar-brand" href="#">Audio recording equipment</a>
+                <a className="navbar-brand" href="#">
+                    <NavbarEntry name="Audio recording equipment"
+                                 onTabChange={this.setActiveTab}
+                                 active={activeTabId === "Audio recording equipment"}/>
+                </a>
                 <div className="navbar" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item" >
+                        <li className="nav-item">
                             <NavbarEntry name="About me"
                                          onTabChange={this.setActiveTab}
                                          active={activeTabId === "About me"}/>
                         </li>
 
-                        <li className="nav-item" >
+                        <li className="nav-item">
                             <NavbarEntry name="Contact"
                                          onTabChange={this.setActiveTab}
                                          active={activeTabId === "Contact"}/>
