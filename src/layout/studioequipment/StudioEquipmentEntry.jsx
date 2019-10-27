@@ -1,31 +1,30 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export class StudioEquipmentEntry extends React.Component {
-    render() {
-        const {name, priority, imageUrl, price} = this.props
+const StudioEquipmentEntry = (props) => {
+    const {name, priority, imageUrl, price} = props
 
-        return (
-            <tr>
-                <td>
-                    <div className="col-6">
-                        <div className="card">
-                            <img src={imageUrl} className="card-img-top" alt=""/>
-                        </div>
+    return (
+        <tr>
+            <td>
+                <div className="col-6">
+                    <div className="card">
+                        <img src={imageUrl} className="card-img-top" alt=""/>
                     </div>
-                </td>
-                <td className="col-2">
-                    {name}
-                </td>
-                <td className="col-2">
-                    {price} zł
-                </td>
-                <td className="col-2">
-                    {priority}
-                </td>
-            </tr>
-        )
-    }
+                </div>
+            </td>
+            <td className="col-2">
+                {name}
+            </td>
+            <td className="col-2">
+                {price} zł
+            </td>
+            <td className="col-2">
+                {priority}
+            </td>
+        </tr>
+
+    )
 }
 
 StudioEquipmentEntry.propTypes = {
@@ -34,3 +33,5 @@ StudioEquipmentEntry.propTypes = {
     imageUrl: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired
 }
+
+export default StudioEquipmentEntry

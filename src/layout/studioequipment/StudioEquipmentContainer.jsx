@@ -1,15 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {StudioEquipmentEntry} from "./StudioEquipmentEntry";
+import StudioEquipmentEntry from "./StudioEquipmentEntry";
 
-export class StudioEquipmentContainer extends React.Component {
-    static getContentForTab(equipmentList, activeTabId) {
+const StudioEquipmentContainer = (props) => {
+    const {equipmentList, activeTabId} = props
+
+    const getContentForTab = React.useCallback((activeTabId) => {
         switch (activeTabId) {
             case "About me": {
                 return <h5>Work in progress...</h5>
             }
             case "Contact": {
-                return <h5>Work in progress</h5>
+                return <h5>Work also in progress...</h5>
             }
             default: {
                 return (
@@ -40,20 +42,18 @@ export class StudioEquipmentContainer extends React.Component {
                 )
             }
         }
-    }
+    }, [])
 
-    render() {
-        const {equipmentList, activeTabId} = this.props
-
-        return (
-            <div className="container content">
-                {StudioEquipmentContainer.getContentForTab(equipmentList, activeTabId)}
-            </div>
-        )
-    }
+    return (
+        <div className="container content">
+            {getContentForTab(activeTabId)}
+        </div>
+    )
 }
 
 StudioEquipmentContainer.propTypes = {
     equipmentList: PropTypes.array.isRequired,
     activeTabId: PropTypes.string.isRequired
 }
+
+export default StudioEquipmentContainer

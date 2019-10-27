@@ -1,27 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export default class NavbarEntry extends React.Component {
-    constructor(props) {
-        super(props)
+const NavbarEntry = (props) => {
+    const {name, active, onTabChange} = props
 
-        this.handleOnTabClick = this.handleOnTabClick.bind(this)
-    }
+    const handleOnTabClick = React.useCallback(() => {
+        onTabChange(name)
+    }, [name])
 
-    handleOnTabClick() {
-        this.props.onTabChange(this.props.name)
-    }
-
-    render() {
-        const {name, active} = this.props
-        return (
-            <div className="navlink">
-                <div className={active ? "active" : undefined}
-                   onClick={this.handleOnTabClick}> {name}
-                </div>
+    return (
+        <div className="navlink">
+            <div className={active ? "active" : undefined}
+                 onClick={handleOnTabClick}> {name}
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 NavbarEntry.propTypes = {
@@ -29,3 +22,5 @@ NavbarEntry.propTypes = {
     active: PropTypes.bool,
     onTabChange: PropTypes.func.isRequired,
 }
+
+export default NavbarEntry
